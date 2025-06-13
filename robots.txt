@@ -1,0 +1,33 @@
+User-agent: *
+Allow: /
+
+# Disallow specific directories that shouldn't be crawled
+Disallow: /js/
+Disallow: /css/
+Disallow: /.git/
+Disallow: /.DS_Store
+Disallow: /WALLPAPER_GUIDE.md
+
+# Allow crawling of specific CSS and JS files that are important for rendering
+Allow: /css/base.css
+Allow: /js/main.js
+
+# Sitemap location
+Sitemap: https://kevinplumlee.com/sitemap.xml
+
+# Crawl-delay for different bots (optional)
+User-agent: Googlebot
+Crawl-delay: 0
+
+User-agent: Bingbot
+Crawl-delay: 1
+
+# Block known bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: / 

@@ -1,0 +1,323 @@
+    <div class="calculator-container">
+        <!-- Header -->
+        <div class="calculator-header">
+            <h1>Healthcare Marketing Calculator</h1>
+            <p>Professional tools to measure and optimize your healthcare marketing performance</p>
+        </div>
+
+        <!-- Calculator Navigation -->
+        <div class="calculator-nav">
+            <button class="calc-nav-btn active" data-calc="roi">ROI Calculator</button>
+            <button class="calc-nav-btn" data-calc="pac">Patient Acquisition</button>
+            <button class="calc-nav-btn" data-calc="ltv">Lifetime Value</button>
+            <button class="calc-nav-btn" data-calc="conversion">Conversion Rate</button>
+            <button class="calc-nav-btn" data-calc="budget">Budget Planner</button>
+        </div>
+
+        <!-- ROI Calculator -->
+        <div class="calculator-section active" id="roi-calculator">
+            <div class="calc-header">
+                <h2>Marketing ROI Calculator</h2>
+                <p>Calculate your healthcare marketing return on investment</p>
+            </div>
+            
+            <div class="calc-form">
+                <div class="form-group">
+                    <label for="roi-revenue">Total Revenue Generated ($)</label>
+                    <input type="number" id="roi-revenue" placeholder="Enter total revenue">
+                </div>
+                
+                <div class="form-group">
+                    <label for="roi-investment">Marketing Investment ($)</label>
+                    <input type="number" id="roi-investment" placeholder="Enter marketing spend">
+                </div>
+                
+                <button class="calc-btn" onclick="calculateROI()">Calculate ROI</button>
+                
+                <div class="result-section" id="roi-results" style="display: none;">
+                    <h3>ROI Results</h3>
+                    <div class="result-item">
+                        <span class="result-label">ROI Percentage:</span>
+                        <span class="result-value" id="roi-percentage">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Net Profit:</span>
+                        <span class="result-value" id="roi-profit">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Return Multiple:</span>
+                        <span class="result-value" id="roi-multiple">-</span>
+                    </div>
+                    <div class="benchmark-info">
+                        <h4>Industry Benchmarks</h4>
+                        <p>Healthcare marketing ROI typically ranges from 300-500%. Your result: <span id="roi-benchmark">-</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Patient Acquisition Cost Calculator -->
+        <div class="calculator-section" id="pac-calculator">
+            <div class="calc-header">
+                <h2>Patient Acquisition Cost (PAC)</h2>
+                <p>Calculate the cost to acquire each new patient</p>
+            </div>
+            
+            <div class="calc-form">
+                <div class="form-group">
+                    <label for="pac-spend">Total Marketing Spend ($)</label>
+                    <input type="number" id="pac-spend" placeholder="Enter marketing spend">
+                </div>
+                
+                <div class="form-group">
+                    <label for="pac-patients">New Patients Acquired</label>
+                    <input type="number" id="pac-patients" placeholder="Enter number of new patients">
+                </div>
+                
+                <div class="form-group">
+                    <label for="pac-specialty">Healthcare Specialty</label>
+                    <select id="pac-specialty">
+                        <option value="general">General Practice</option>
+                        <option value="dental">Dental</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="orthopedic">Orthopedic</option>
+                        <option value="dermatology">Dermatology</option>
+                        <option value="behavioral">Behavioral Health</option>
+                        <option value="urgent-care">Urgent Care</option>
+                        <option value="cosmetic">Cosmetic Surgery</option>
+                    </select>
+                </div>
+                
+                <button class="calc-btn" onclick="calculatePAC()">Calculate PAC</button>
+                
+                <div class="result-section" id="pac-results" style="display: none;">
+                    <h3>Patient Acquisition Results</h3>
+                    <div class="result-item">
+                        <span class="result-label">Cost Per Patient:</span>
+                        <span class="result-value" id="pac-cost">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Industry Average:</span>
+                        <span class="result-value" id="pac-benchmark">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Performance:</span>
+                        <span class="result-value" id="pac-performance">-</span>
+                    </div>
+                    <div class="benchmark-info">
+                        <h4>Optimization Tips</h4>
+                        <div id="pac-tips"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lifetime Value Calculator -->
+        <div class="calculator-section" id="ltv-calculator">
+            <div class="calc-header">
+                <h2>Patient Lifetime Value (LTV)</h2>
+                <p>Calculate the total value of a patient relationship</p>
+            </div>
+            
+            <div class="calc-form">
+                <div class="form-group">
+                    <label for="ltv-visit-value">Average Visit Value ($)</label>
+                    <input type="number" id="ltv-visit-value" placeholder="Enter average visit value">
+                </div>
+                
+                <div class="form-group">
+                    <label for="ltv-visits-year">Visits Per Year</label>
+                    <input type="number" id="ltv-visits-year" placeholder="Enter visits per year">
+                </div>
+                
+                <div class="form-group">
+                    <label for="ltv-retention">Patient Retention (Years)</label>
+                    <input type="number" id="ltv-retention" placeholder="Enter average retention years">
+                </div>
+                
+                <div class="form-group">
+                    <label for="ltv-referrals">Referrals Per Patient</label>
+                    <input type="number" id="ltv-referrals" placeholder="Enter average referrals">
+                </div>
+                
+                <button class="calc-btn" onclick="calculateLTV()">Calculate LTV</button>
+                
+                <div class="result-section" id="ltv-results" style="display: none;">
+                    <h3>Lifetime Value Results</h3>
+                    <div class="result-item">
+                        <span class="result-label">Patient LTV:</span>
+                        <span class="result-value" id="ltv-total">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Annual Value:</span>
+                        <span class="result-value" id="ltv-annual">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Referral Value:</span>
+                        <span class="result-value" id="ltv-referral-value">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Total LTV + Referrals:</span>
+                        <span class="result-value" id="ltv-with-referrals">-</span>
+                    </div>
+                    <div class="benchmark-info">
+                        <h4>LTV Insights</h4>
+                        <div id="ltv-insights"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conversion Rate Calculator -->
+        <div class="calculator-section" id="conversion-calculator">
+            <div class="calc-header">
+                <h2>Conversion Rate Optimizer</h2>
+                <p>Analyze and optimize your marketing funnel performance</p>
+            </div>
+            
+            <div class="calc-form">
+                <div class="form-group">
+                    <label for="conv-visitors">Website Visitors</label>
+                    <input type="number" id="conv-visitors" placeholder="Enter total visitors">
+                </div>
+                
+                <div class="form-group">
+                    <label for="conv-leads">Leads Generated</label>
+                    <input type="number" id="conv-leads" placeholder="Enter total leads">
+                </div>
+                
+                <div class="form-group">
+                    <label for="conv-appointments">Appointments Scheduled</label>
+                    <input type="number" id="conv-appointments" placeholder="Enter appointments">
+                </div>
+                
+                <div class="form-group">
+                    <label for="conv-patients">New Patients</label>
+                    <input type="number" id="conv-patients" placeholder="Enter new patients">
+                </div>
+                
+                <button class="calc-btn" onclick="calculateConversion()">Analyze Funnel</button>
+                
+                <div class="result-section" id="conversion-results" style="display: none;">
+                    <h3>Conversion Funnel Analysis</h3>
+                    <div class="funnel-chart">
+                        <div class="funnel-step">
+                            <div class="funnel-label">Visitors</div>
+                            <div class="funnel-value" id="funnel-visitors">-</div>
+                        </div>
+                        <div class="funnel-arrow">↓</div>
+                        <div class="funnel-step">
+                            <div class="funnel-label">Leads</div>
+                            <div class="funnel-value" id="funnel-leads">-</div>
+                            <div class="funnel-rate" id="funnel-lead-rate">-</div>
+                        </div>
+                        <div class="funnel-arrow">↓</div>
+                        <div class="funnel-step">
+                            <div class="funnel-label">Appointments</div>
+                            <div class="funnel-value" id="funnel-appointments">-</div>
+                            <div class="funnel-rate" id="funnel-appointment-rate">-</div>
+                        </div>
+                        <div class="funnel-arrow">↓</div>
+                        <div class="funnel-step">
+                            <div class="funnel-label">Patients</div>
+                            <div class="funnel-value" id="funnel-patients">-</div>
+                            <div class="funnel-rate" id="funnel-patient-rate">-</div>
+                        </div>
+                    </div>
+                    <div class="conversion-insights">
+                        <h4>Optimization Opportunities</h4>
+                        <div id="conversion-tips"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Budget Planner -->
+        <div class="calculator-section" id="budget-calculator">
+            <div class="calc-header">
+                <h2>Marketing Budget Planner</h2>
+                <p>Plan and allocate your healthcare marketing budget effectively</p>
+            </div>
+            
+            <div class="calc-form">
+                <div class="form-group">
+                    <label for="budget-total">Total Marketing Budget ($)</label>
+                    <input type="number" id="budget-total" placeholder="Enter total budget">
+                </div>
+                
+                <div class="form-group">
+                    <label for="budget-practice-type">Practice Type</label>
+                    <select id="budget-practice-type">
+                        <option value="small">Small Practice (1-3 providers)</option>
+                        <option value="medium">Medium Practice (4-10 providers)</option>
+                        <option value="large">Large Practice (10+ providers)</option>
+                        <option value="hospital">Hospital/Health System</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="budget-goals">Primary Goal</label>
+                    <select id="budget-goals">
+                        <option value="awareness">Brand Awareness</option>
+                        <option value="acquisition">Patient Acquisition</option>
+                        <option value="retention">Patient Retention</option>
+                        <option value="reputation">Reputation Management</option>
+                        <option value="mixed">Mixed Goals</option>
+                    </select>
+                </div>
+                
+                <button class="calc-btn" onclick="calculateBudget()">Create Budget Plan</button>
+                
+                <div class="result-section" id="budget-results" style="display: none;">
+                    <h3>Recommended Budget Allocation</h3>
+                    <div class="budget-chart">
+                        <div class="budget-item">
+                            <span class="budget-label">Digital Advertising (PPC/Social)</span>
+                            <span class="budget-percentage" id="budget-digital-pct">-</span>
+                            <span class="budget-amount" id="budget-digital-amt">-</span>
+                        </div>
+                        <div class="budget-item">
+                            <span class="budget-label">SEO & Content Marketing</span>
+                            <span class="budget-percentage" id="budget-seo-pct">-</span>
+                            <span class="budget-amount" id="budget-seo-amt">-</span>
+                        </div>
+                        <div class="budget-item">
+                            <span class="budget-label">Website & Technology</span>
+                            <span class="budget-percentage" id="budget-tech-pct">-</span>
+                            <span class="budget-amount" id="budget-tech-amt">-</span>
+                        </div>
+                        <div class="budget-item">
+                            <span class="budget-label">Traditional Marketing</span>
+                            <span class="budget-percentage" id="budget-traditional-pct">-</span>
+                            <span class="budget-amount" id="budget-traditional-amt">-</span>
+                        </div>
+                        <div class="budget-item">
+                            <span class="budget-label">Analytics & Tools</span>
+                            <span class="budget-percentage" id="budget-analytics-pct">-</span>
+                            <span class="budget-amount" id="budget-analytics-amt">-</span>
+                        </div>
+                    </div>
+                    <div class="budget-recommendations">
+                        <h4>Budget Recommendations</h4>
+                        <div id="budget-tips"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Expert Consultation CTA -->
+        <div class="consultation-cta">
+            <div class="cta-content">
+                <h3>Need Expert Healthcare Marketing Guidance?</h3>
+                <p>Schedule a consultation with VP Performance Marketing Kevin Plumlee to optimize your healthcare marketing strategy and maximize ROI.</p>
+                <button class="cta-button" onclick="window.open('https://unlockhealth.com/contact', '_blank')">
+                    Schedule Consultation
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading-message" id="calc-loading" style="display: none;">
+        <div class="loading-spinner"></div>
+        <p>Loading Healthcare Marketing Calculator...</p>
+    </div> 

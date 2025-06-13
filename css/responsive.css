@@ -1,0 +1,1773 @@
+/* Responsive Design - Enhanced Mobile/iPhone Experience */
+
+/* iPhone-style variables */
+:root {
+    --iphone-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --iphone-card-bg: rgba(255, 255, 255, 0.95);
+    --iphone-blur: blur(20px);
+    --iphone-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --iphone-border-radius: 20px;
+    --iphone-app-size: 70px;
+    --iphone-spacing: 20px;
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+    .desktop-icon {
+        width: 90px;
+        height: 110px;
+    }
+    
+    .desktop-icon i {
+        font-size: 48px;
+    }
+    
+    .desktop-icon span {
+        font-size: 14px;
+    }
+    
+    .dock-item {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .dock-item i {
+        font-size: 28px;
+    }
+}
+
+/* Desktop */
+@media (max-width: 1024px) {
+    .window {
+        min-width: 400px;
+        max-width: 95vw;
+    }
+    
+    .skills-grid, .specializations-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .skills-resume {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+    
+    .contact-methods {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .menu-bar {
+        padding: 0 12px;
+        font-size: 12px;
+    }
+    
+    .menu-right {
+        gap: 8px;
+    }
+    
+    .desktop {
+        padding: 16px;
+    }
+    
+    .desktop-icon {
+        width: 70px;
+        height: 90px;
+        padding: 6px;
+    }
+    
+    .desktop-icon i {
+        font-size: 36px;
+        margin-bottom: 6px;
+    }
+    
+    .desktop-icon span {
+        font-size: 11px;
+    }
+    
+    .desktop-icon[data-app="about"] {
+        top: 16px;
+        left: 16px;
+    }
+    
+    .desktop-icon[data-app="projects"] {
+        top: 16px;
+        left: 100px;
+    }
+    
+    .desktop-icon[data-app="resume"] {
+        top: 16px;
+        left: 184px;
+    }
+    
+    .desktop-icon[data-app="contact"] {
+        top: 16px;
+        left: 268px;
+    }
+    
+    .window {
+        min-width: 90vw;
+        max-width: 95vw;
+        left: 2.5vw !important;
+        top: 5vh !important;
+        max-height: 85vh;
+    }
+    
+    .window-content {
+        padding: 16px;
+    }
+    
+    .window-title {
+        margin: 0 40px;
+        font-size: 13px;
+    }
+    
+    .profile-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+    
+    .profile-image i {
+        font-size: 64px;
+    }
+    
+    .profile-info h2 {
+        font-size: 24px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .specializations-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .skills-resume {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .contact-methods {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .skill-item {
+        padding: 16px 12px;
+    }
+    
+    .skill-item i {
+        font-size: 28px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .project-item {
+        padding: 20px;
+    }
+    
+    .project-image i {
+        font-size: 48px;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .resume-header {
+        padding: 24px 16px;
+    }
+    
+    .resume-header h2 {
+        font-size: 28px;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .contact-info span {
+        justify-content: center;
+    }
+    
+    .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .job-header h4 {
+        font-size: 18px;
+    }
+    
+    .experience-item,
+    .education-item {
+        padding: 16px;
+    }
+    
+    .contact-form {
+        max-width: 100%;
+    }
+    
+    .dock {
+        left: 8px;
+        right: 8px;
+        transform: none;
+        justify-content: center;
+        padding: 6px 12px;
+        gap: 6px;
+    }
+    
+    .dock-item {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .dock-item i {
+        font-size: 20px;
+    }
+    
+    .dock-separator {
+        height: 28px;
+    }
+}
+
+/* Hide iPhone-style elements on desktop */
+@media (min-width: 681px) {
+    .iphone-back-button,
+    .iphone-action-button {
+        display: none !important;
+    }
+}
+
+/* Mobile iPhone-style Interface */
+@media (max-width: 680px) {
+    /* iPhone-style body background */
+    body {
+        background: var(--iphone-background);
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    
+    /* Mobile wallpaper background support */
+    body.mobile-interface.has-wallpaper {
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-attachment: fixed !important;
+    }
+    
+    /* Ensure wallpaper is visible on all mobile devices */
+    body.mobile-interface.has-wallpaper,
+    body.mobile-interface.has-wallpaper::before {
+        background-size: cover !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+    }
+    
+    /* Alternative for devices that don't support background-attachment: fixed */
+    @supports not (background-attachment: fixed) {
+        body.mobile-interface.has-wallpaper {
+            background-attachment: scroll !important;
+        }
+    }
+    
+    /* Hide desktop macOS elements on mobile */
+    .menu-bar {
+        display: none !important;
+    }
+    
+    .desktop {
+        display: none !important;
+    }
+    
+    .dock {
+        display: none !important;
+    }
+    
+    /* Force hide desktop elements when mobile interface is active */
+    body.mobile-interface .menu-bar,
+    body.mobile-interface .desktop,
+    body.mobile-interface .dock {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    
+    /* Ensure mobile home screen is visible */
+    body.mobile-interface .mobile-home-screen {
+        display: block !important;
+        visibility: visible !important;
+    }
+    
+    /* Create iPhone-style home screen */
+    .mobile-home-screen {
+        display: block !important;
+        padding: 60px 20px 20px;
+        min-height: 100vh;
+        height: 100vh;
+        width: 100vw;
+        background: transparent;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Default gradient background when no wallpaper is set */
+    body.mobile-interface:not(.has-wallpaper) .mobile-home-screen {
+        background: var(--iphone-background);
+    }
+    
+    /* Mobile home screen with wallpaper - add subtle overlay for text readability */
+    body.mobile-interface.has-wallpaper .mobile-home-screen {
+        background: rgba(0, 0, 0, 0.15) !important;
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+    }
+    
+    /* Ensure mobile home screen doesn't override body background */
+    body.mobile-interface.has-wallpaper .mobile-home-screen {
+        background-color: transparent !important;
+        background-image: none !important;
+    }
+    
+    /* iPhone status bar */
+    /* Clean iOS-style app header */
+    .iphone-status-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        color: var(--text-primary);
+        font-size: 16px;
+        font-weight: 600;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Header with wallpaper */
+    body.mobile-interface.has-wallpaper .iphone-status-bar {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Dark mode header */
+    @media (prefers-color-scheme: dark) {
+        .iphone-status-bar {
+            background: rgba(20, 20, 20, 0.95);
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        body.mobile-interface.has-wallpaper .iphone-status-bar {
+            background: rgba(20, 20, 20, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    }
+    
+    .app-header-left {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .app-logo {
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .app-logo i {
+        font-size: 16px;
+        color: white;
+    }
+    
+    .app-logo .plum-icon {
+        width: 18px;
+        height: 18px;
+        display: block;
+        margin: auto;
+    }
+    
+    .app-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--text-primary);
+        background: linear-gradient(135deg, var(--primary-blue), #667eea);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+        .app-title {
+            color: white;
+            -webkit-text-fill-color: white;
+        }
+    }
+    
+    .app-header-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .current-time {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--text-secondary);
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+        font-variant-numeric: tabular-nums;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+        .current-time {
+            color: rgba(255, 255, 255, 0.8);
+        }
+    }
+    
+    /* iPhone home screen grid */
+    .iphone-app-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--iphone-spacing);
+        margin: 40px 0;
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .iphone-app {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    .iphone-app:hover,
+    .iphone-app:active {
+        transform: scale(1.1);
+    }
+    
+    .iphone-app-icon {
+        width: var(--iphone-app-size);
+        height: var(--iphone-app-size);
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(20px);
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .iphone-app-icon::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+        border-radius: 16px;
+    }
+    
+    .iphone-app-icon i {
+        font-size: 32px;
+        color: white;
+        z-index: 1;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+    
+    .iphone-app-name {
+        font-size: 12px;
+        font-weight: 400;
+        text-align: center;
+        max-width: 80px;
+        line-height: 1.2;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Desktop-style gradients for mobile app icons */
+    .iphone-app[data-app="about"] .iphone-app-icon {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+    }
+    
+    .iphone-app[data-app="projects"] .iphone-app-icon {
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        box-shadow: 0 4px 15px rgba(67, 233, 123, 0.3);
+    }
+    
+    .iphone-app[data-app="resume"] .iphone-app-icon {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        box-shadow: 0 4px 15px rgba(250, 112, 154, 0.3);
+    }
+    
+    .iphone-app[data-app="contact"] .iphone-app-icon {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        box-shadow: 0 4px 15px rgba(168, 237, 234, 0.3);
+    }
+    
+    .iphone-app[data-app="settings"] .iphone-app-icon {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);
+    }
+    
+    .iphone-app[data-app="linkedin"] .iphone-app-icon {
+        background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
+        box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
+    }
+    
+    .iphone-app[data-app="unlock-health"] .iphone-app-icon {
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+    }
+    
+    .iphone-app[data-app="credentials"] .iphone-app-icon {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        box-shadow: 0 4px 15px rgba(255, 236, 210, 0.3);
+    }
+    
+    .iphone-app[data-app="trivia"] .iphone-app-icon {
+        background: linear-gradient(135deg, #9c27b0 0%, #e91e63 100%);
+        box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
+    }
+    
+    /* All mobile app icons have white icons with drop shadows */
+    .iphone-app[data-app="about"] .iphone-app-icon i,
+    .iphone-app[data-app="projects"] .iphone-app-icon i,
+    .iphone-app[data-app="resume"] .iphone-app-icon i,
+    .iphone-app[data-app="contact"] .iphone-app-icon i,
+    .iphone-app[data-app="settings"] .iphone-app-icon i,
+    .iphone-app[data-app="linkedin"] .iphone-app-icon i,
+    .iphone-app[data-app="unlock-health"] .iphone-app-icon i,
+    .iphone-app[data-app="trivia"] .iphone-app-icon i {
+        color: white;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+    
+    /* Credentials app uses dark brown icon like desktop */
+    .iphone-app[data-app="credentials"] .iphone-app-icon i {
+        color: #8b4513;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+    
+    /* iPhone-style profile section */
+    .iphone-profile-card {
+        background: var(--iphone-card-bg);
+        border-radius: var(--iphone-border-radius);
+        padding: 30px 20px;
+        margin: 0 auto 40px;
+        max-width: 350px;
+        text-align: center;
+        box-shadow: var(--iphone-shadow);
+        backdrop-filter: var(--iphone-blur);
+    }
+    
+    /* Profile card with wallpaper */
+    body.mobile-interface.has-wallpaper .iphone-profile-card {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(25px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .iphone-profile-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    }
+    
+    .iphone-profile-image i {
+        font-size: 50px;
+        color: white;
+    }
+    
+    .iphone-profile-image .profile-picture {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    
+    .iphone-profile-name {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+    }
+    
+    .iphone-profile-title {
+        font-size: 16px;
+        color: var(--text-secondary);
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+    
+    .iphone-profile-bio {
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--text-secondary);
+    }
+    
+    /* Mobile LinkedIn Profile Badge - Apple Style */
+    .mobile-linkedin-embed {
+        max-width: 350px;
+        margin: 20px auto 40px;
+        padding: 0 20px;
+        text-align: center;
+    }
+    
+    .mobile-linkedin-embed .LI-profile-badge,
+    .mobile-linkedin-embed .badge-base {
+        margin: 0 auto;
+        display: block;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 16px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+        transition: all 0.2s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+    
+    .mobile-linkedin-embed .LI-profile-badge::before,
+    .mobile-linkedin-embed .badge-base::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+        pointer-events: none;
+    }
+    
+    .mobile-linkedin-embed .LI-profile-badge:hover,
+    .mobile-linkedin-embed .badge-base:hover {
+        transform: scale(0.98);
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+        background: rgba(255, 255, 255, 0.9);
+    }
+    
+    .mobile-linkedin-embed .LI-simple-link,
+    .mobile-linkedin-embed .badge-base__link {
+        text-decoration: none !important;
+        display: block;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .linkedin-profile-content {
+        padding: 20px;
+        text-align: left;
+    }
+    
+    .linkedin-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .linkedin-logo {
+        color: #0077b5;
+        display: flex;
+        align-items: center;
+    }
+    
+    .linkedin-text {
+        color: #0077b5;
+        font-weight: 600;
+        font-size: 15px;
+    }
+    
+    .linkedin-profile-info {
+        margin-bottom: 16px;
+    }
+    
+    .linkedin-name {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 4px;
+        line-height: 1.2;
+    }
+    
+    .linkedin-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 6px;
+        line-height: 1.3;
+    }
+    
+    .linkedin-meta {
+        font-size: 14px;
+        color: var(--text-secondary);
+        line-height: 1.4;
+    }
+    
+    .linkedin-action {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #0077b5;
+        font-weight: 500;
+        font-size: 15px;
+    }
+    
+    .view-profile {
+        flex: 1;
+    }
+    
+    .linkedin-action svg {
+        opacity: 0.6;
+        transition: opacity 0.2s ease;
+    }
+    
+    .mobile-linkedin-embed .badge-base:hover .linkedin-action svg {
+        opacity: 1;
+    }
+    
+    /* Enhanced styling with wallpaper */
+    body.mobile-interface.has-wallpaper .mobile-linkedin-embed .LI-profile-badge,
+    body.mobile-interface.has-wallpaper .mobile-linkedin-embed .badge-base {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    body.mobile-interface.has-wallpaper .linkedin-header {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+        .mobile-linkedin-embed .LI-profile-badge,
+        .mobile-linkedin-embed .badge-base {
+            background: rgba(30, 30, 30, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .linkedin-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .linkedin-logo,
+        .linkedin-text,
+        .linkedin-action {
+            color: #0a84ff;
+        }
+        
+        .linkedin-name,
+        .linkedin-title {
+            color: white;
+        }
+        
+        .linkedin-meta {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        body.mobile-interface.has-wallpaper .mobile-linkedin-embed .LI-profile-badge,
+        body.mobile-interface.has-wallpaper .mobile-linkedin-embed .badge-base {
+            background: rgba(20, 20, 20, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        body.mobile-interface.has-wallpaper .linkedin-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+    }
+    
+    /* iPhone-style windows (full screen) */
+    .window {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: none !important;
+        max-height: none !important;
+        border-radius: 0 !important;
+        background: var(--iphone-card-bg);
+        backdrop-filter: var(--iphone-blur);
+        z-index: 2000;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .window.open {
+        transform: translateX(0);
+    }
+    
+    .window.closing {
+        transform: translateX(100%);
+    }
+    
+    /* iPhone-style window header */
+    .window-header {
+        height: 60px !important;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    
+    /* Dark mode mobile window header */
+    @media (prefers-color-scheme: dark) {
+        .window-header {
+            background: rgba(15, 15, 15, 0.85) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        .window-title {
+            color: #ffffff !important;
+        }
+        
+        .iphone-back-button {
+            color: #0080ff !important;
+        }
+        
+        .iphone-action-button {
+            color: #0080ff !important;
+        }
+    }
+    
+    .window-controls {
+        display: none;
+    }
+    
+    .iphone-back-button {
+        background: none;
+        border: none;
+        color: var(--primary-blue);
+        font-size: 16px;
+        font-weight: 400;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .window-title {
+        font-size: 18px !important;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin: 0 !important;
+    }
+    
+    .iphone-action-button {
+        background: none;
+        border: none;
+        color: var(--primary-blue);
+        font-size: 16px;
+        font-weight: 400;
+        cursor: pointer;
+    }
+    
+    /* iPhone-style window content */
+    .window-content {
+        height: calc(100vh - 60px) !important;
+        padding: 20px !important;
+        overflow-y: auto !important;
+        background: #f8f9fa;
+    }
+    
+    /* iPhone-style bottom navigation for mobile */
+    .iphone-bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: var(--iphone-blur);
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 1500;
+        padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+    
+    .iphone-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: var(--text-secondary);
+        transition: color 0.3s ease;
+        min-width: 50px;
+    }
+    
+    .iphone-nav-item.active,
+    .iphone-nav-item:hover {
+        color: var(--primary-blue);
+    }
+    
+    .iphone-nav-item i {
+        font-size: 24px;
+        margin-bottom: 4px;
+    }
+    
+    .iphone-nav-item span {
+        font-size: 10px;
+        font-weight: 500;
+    }
+    
+    /* Enhanced content styling for mobile */
+    .profile-section {
+        background: white;
+        border-radius: 16px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .skills-grid, .specializations-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+    
+    .skill-item {
+        background: white;
+        border-radius: 12px;
+        padding: 16px 12px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease;
+    }
+    
+    .skill-item:hover {
+        transform: translateY(-2px);
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .project-item {
+        background: white;
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-form {
+        background: white;
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        padding: 15px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .submit-btn {
+        background: var(--primary-blue);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        padding: 15px 30px;
+        font-size: 16px;
+        font-weight: 600;
+        width: 100%;
+        cursor: pointer;
+    }
+    
+    /* Hide elements not needed on mobile */
+    .desktop-icon {
+        display: none;
+    }
+    
+    .loading-screen {
+        background: #000000;
+    }
+    
+    /* Mobile-specific body styling */
+    body.mobile-interface {
+        background: var(--iphone-background) !important;
+        overflow: hidden !important;
+        height: 100vh !important;
+        width: 100vw !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Mobile wallpaper background support - override default when wallpaper is set */
+    body.mobile-interface.has-wallpaper {
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-attachment: fixed !important;
+    }
+    
+    /* Prevent bounce scroll on iOS */
+    body.mobile-interface .mobile-home-screen {
+        position: relative;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Enhanced touch targets */
+    .iphone-app,
+    .iphone-back-button,
+    .iphone-action-button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Improved button styling */
+    .iphone-back-button,
+    .iphone-action-button {
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+    }
+    
+    .iphone-back-button:active,
+    .iphone-action-button:active {
+        opacity: 0.6;
+    }
+    
+    /* Enhanced scrolling for window content */
+    .window-content {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+    
+    /* Fix for potential layout issues */
+    .window-content > * {
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+    
+    /* Better form styling on mobile */
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary-blue);
+        box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+    }
+    
+    /* Loading screen improvements */
+    .loading-screen {
+        touch-action: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    
+    /* Ensure safe areas are respected */
+    .mobile-home-screen {
+        padding-top: max(80px, env(safe-area-inset-top, 20px));
+        padding-bottom: max(100px, env(safe-area-inset-bottom, 0));
+        padding-left: env(safe-area-inset-left, 0);
+        padding-right: env(safe-area-inset-right, 0);
+    }
+    
+    /* Header safe area */
+    .iphone-status-bar {
+        padding-top: env(safe-area-inset-top, 0);
+        height: calc(60px + env(safe-area-inset-top, 0));
+    }
+    
+    /* Mobile settings styling */
+    .mobile-wallpaper-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .mobile-wallpaper-item {
+        aspect-ratio: 16/9;
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        position: relative;
+        border: 3px solid transparent;
+        transition: all 0.3s ease;
+        background-size: cover;
+        background-position: center;
+        background-color: #f0f0f0;
+    }
+    
+    .mobile-wallpaper-item.active {
+        border-color: var(--primary-blue);
+        transform: scale(1.05);
+    }
+    
+    .mobile-wallpaper-item.gradient {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .mobile-wallpaper-item::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .mobile-wallpaper-item:hover::after {
+        opacity: 1;
+    }
+    
+    .mobile-wallpaper-name {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 8px;
+        font-size: 12px;
+        font-weight: 500;
+        text-align: center;
+    }
+    
+    .settings-tip {
+        background: rgba(0, 122, 255, 0.1);
+        border: 1px solid rgba(0, 122, 255, 0.2);
+        border-radius: 8px;
+        padding: 12px;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        color: var(--primary-blue);
+    }
+    
+    .settings-tip i {
+        font-size: 16px;
+    }
+    
+    /* Mobile dropdown styles */
+    .mobile-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: rgba(20, 20, 20, 0.85);
+        backdrop-filter: blur(25px);
+        border-radius: 16px;
+        padding: 0;
+        min-width: 280px;
+        max-width: 320px;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        z-index: 1002;
+        display: none;
+        color: #ffffff;
+        font-size: 14px;
+        margin-top: 8px;
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+        transition: all 0.3s ease;
+    }
+
+    .mobile-dropdown.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    .mobile-dropdown-content {
+        padding: 16px;
+    }
+
+    /* Specific positioning for different dropdowns */
+    #mobile-time-dropdown {
+        right: 0;
+    }
+
+    #mobile-wifi-dropdown {
+        right: 60px;
+    }
+
+    #mobile-battery-dropdown {
+        right: 30px;
+    }
+
+    /* Mobile Time Dropdown */
+    .mobile-digital-clock {
+        text-align: center;
+        padding: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 16px;
+    }
+
+    .mobile-time-display {
+        font-size: 28px;
+        font-weight: 300;
+        font-family: 'SF Mono', Monaco, monospace;
+        color: #ffffff;
+        margin-bottom: 8px;
+    }
+
+    .mobile-date-display {
+        font-size: 14px;
+        color: #a0a0a0;
+    }
+
+    .mobile-calendar-container {
+        padding: 8px 0;
+    }
+
+    .mobile-calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+        padding: 0 8px;
+    }
+
+    .mobile-calendar-header button {
+        background: rgba(255, 255, 255, 0.15);
+        border: none;
+        color: #ffffff;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        transition: background-color 0.2s;
+    }
+
+    .mobile-calendar-header button:hover,
+    .mobile-calendar-header button:active {
+        background: rgba(255, 255, 255, 0.25);
+        transform: scale(0.95);
+    }
+
+    .mobile-calendar-header span {
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    .mobile-calendar-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .mobile-calendar-row {
+        display: flex;
+        gap: 4px;
+    }
+
+    .mobile-calendar-day-header {
+        width: 32px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 600;
+        color: #a0a0a0;
+    }
+
+    .mobile-calendar-day {
+        width: 32px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .mobile-calendar-day:hover:not(.empty) {
+        background: rgba(255, 255, 255, 0.1);
+        transform: scale(1.05);
+    }
+
+    .mobile-calendar-day.today {
+        background: var(--primary-blue);
+        color: white;
+        font-weight: 700;
+        box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
+    }
+
+    .mobile-calendar-day.empty {
+        cursor: default;
+        opacity: 0.3;
+    }
+
+    /* Mobile WiFi Dropdown */
+    .mobile-wifi-header {
+        font-weight: 700;
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 16px;
+    }
+
+    .mobile-wifi-network {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 8px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+        margin-bottom: 4px;
+    }
+
+    .mobile-wifi-network:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateX(4px);
+    }
+
+    .mobile-wifi-network:active {
+        transform: translateX(4px) scale(0.98);
+    }
+
+    .mobile-wifi-network.connected {
+        background: rgba(0, 122, 255, 0.2);
+        font-weight: 600;
+        border: 1px solid rgba(0, 122, 255, 0.3);
+    }
+
+    .mobile-network-name {
+        flex: 1;
+        font-size: 14px;
+    }
+
+    .mobile-signal-strength {
+        font-family: monospace;
+        color: #a0a0a0;
+        font-size: 14px;
+        margin-left: 12px;
+    }
+
+    /* Mobile Battery Dropdown */
+    .mobile-battery-header {
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .mobile-battery-visual {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .mobile-battery-body {
+        width: 70px;
+        height: 28px;
+        border: 2px solid #ffffff;
+        border-radius: 4px;
+        position: relative;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-battery-level {
+        height: 100%;
+        background: linear-gradient(90deg, #4CAF50, #8BC34A);
+        border-radius: 2px;
+        width: 84%;
+        transition: width 0.3s;
+    }
+
+    .mobile-battery-tip {
+        width: 4px;
+        height: 16px;
+        background: #ffffff;
+        border-radius: 0 3px 3px 0;
+        margin-left: 2px;
+    }
+
+    .mobile-battery-info {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .mobile-battery-percentage {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 6px;
+        color: #4CAF50;
+    }
+
+    .mobile-battery-time {
+        font-size: 13px;
+        color: #a0a0a0;
+    }
+
+    .mobile-battery-tips {
+        margin-bottom: 20px;
+    }
+
+    .mobile-tip {
+        font-size: 12px;
+        color: #a0a0a0;
+        margin-bottom: 6px;
+        text-align: center;
+        line-height: 1.4;
+    }
+
+    .mobile-battery-saver {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+        padding: 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.2s;
+    }
+
+    .mobile-battery-saver:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: translateY(-1px);
+    }
+
+    .mobile-battery-saver:active {
+        transform: translateY(0) scale(0.98);
+    }
+
+    /* Mobile notification styling */
+    .mobile-notification {
+        pointer-events: none;
+        user-select: none;
+    }
+
+    /* Adjust dropdown positioning for different mobile orientations */
+    @media (max-width: 360px) {
+        .mobile-dropdown {
+            min-width: 260px;
+            right: 10px;
+        }
+    }
+
+    /* Profile card styling */
+}
+
+/* Extra small mobile devices */
+@media (max-width: 320px) {
+    .iphone-app-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        max-width: 280px;
+    }
+    
+    .iphone-app-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .iphone-app-icon i {
+        font-size: 28px;
+    }
+    
+    .iphone-profile-card {
+        max-width: 300px;
+        padding: 25px 15px;
+    }
+    
+    .iphone-profile-image {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .iphone-profile-image i {
+        font-size: 40px;
+    }
+}
+
+/* Landscape mobile orientation */
+@media (max-height: 500px) and (orientation: landscape) and (max-width: 680px) {
+    .mobile-home-screen {
+        padding: 10px 20px;
+    }
+    
+    .iphone-status-bar {
+        height: 35px;
+    }
+    
+    .iphone-app-grid {
+        margin: 20px 0;
+    }
+    
+    .iphone-profile-card {
+        margin-bottom: 20px;
+        padding: 20px 15px;
+    }
+    
+    .iphone-bottom-nav {
+        height: 60px;
+    }
+    
+    .window-content {
+        height: calc(100vh - 45px) !important;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .window {
+        backdrop-filter: blur(30px);
+    }
+    
+    .dock {
+        backdrop-filter: blur(30px);
+    }
+    
+    .menu-bar {
+        backdrop-filter: blur(30px);
+    }
+    
+    .iphone-card-bg {
+        backdrop-filter: blur(25px);
+    }
+}
+
+/* Wallpaper Grid - Fixed Layout to Prevent Shifts */
+.wallpaper-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    min-height: 400px; /* Prevent container shifts */
+    contain: layout style paint;
+}
+
+/* Wallpaper Option Styling - Fixed Dimensions */
+.wallpaper-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 120px; /* Prevent layout shift */
+    max-height: 120px; /* Lock height to prevent expansion */
+    width: 140px; /* Fixed width */
+    box-sizing: border-box;
+    contain: layout style paint; /* Strict containment */
+    will-change: auto;
+}
+
+.wallpaper-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.wallpaper-option.selected {
+    background-color: rgba(0, 122, 255, 0.2);
+    border: 2px solid #007aff;
+}
+
+/* Wallpaper Preview - Strict Dimensions */
+.wallpaper-preview {
+    width: 120px !important;
+    height: 80px !important;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+    background-color: #f0f0f0;
+    flex-shrink: 0; /* Prevent shrinking */
+    display: block; /* Ensure block-level behavior */
+}
+
+.wallpaper-preview.lazy-load {
+    opacity: 0.7;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.wallpaper-name {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    height: 16px; /* Fixed height for text */
+    line-height: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+/* Enhanced Profile Picture Optimization */
+.profile-picture {
+    width: 100px !important;
+    height: 100px !important;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: #f0f0f0; /* Fallback background */
+    display: block;
+    flex-shrink: 0;
+}
+
+.iphone-profile-image {
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    contain: layout style paint; /* Optimize rendering */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Critical Path Optimization - Enhanced */
+.iphone-profile-card {
+    contain: layout style paint;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px 20px;
+    margin: 0 auto 40px;
+    max-width: 350px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    min-height: 280px !important; /* Force minimum height */
+    height: auto;
+    will-change: auto; /* Only animate when needed */
+    box-sizing: border-box;
+}
+
+/* Loading Content - Fixed Dimensions */
+.loading-content {
+    contain: layout style paint;
+    min-height: 200px; /* Prevent shifts during loading */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Mobile Apps - Fixed Layout */
+.iphone-app {
+    contain: layout style paint;
+    width: 60px;
+    height: 80px; /* Fixed height to prevent shifts */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.iphone-app-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin-bottom: 5px;
+    flex-shrink: 0;
+}
+
+.iphone-app-name {
+    font-size: 10px;
+    color: #fff;
+    text-align: center;
+    line-height: 12px;
+    height: 24px; /* Fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} 

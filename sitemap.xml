@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+        
+  <!-- Homepage -->
+  <url>
+    <loc>https://kevinplumlee.com/</loc>
+    <lastmod>2024-12-19T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://kevinplumlee.com/images/profilepicture/Kevin_Plumlee.webp</image:loc>
+      <image:caption>Kevin Plumlee - Healthcare Marketing Executive and VP Performance Marketing</image:caption>
+      <image:title>Kevin Plumlee Professional Headshot</image:title>
+    </image:image>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://kevinplumlee.com/about</loc>
+    <lastmod>2024-12-19T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Projects Page -->
+  <url>
+    <loc>https://kevinplumlee.com/projects</loc>
+    <lastmod>2024-12-19T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Resume Page -->
+  <url>
+    <loc>https://kevinplumlee.com/resume</loc>
+    <lastmod>2024-12-19T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://kevinplumlee.com/contact</loc>
+    <lastmod>2024-12-19T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+</urlset> 

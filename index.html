@@ -73,61 +73,64 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     
-    <!-- Critical CSS Inlined for LCP optimization -->
+    <!-- Critical CSS Inlined for fastest rendering -->
     <style>
-        /* Critical CSS for LCP optimization */
         body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#000;overflow:hidden}
-        .loading-screen{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:10000;will-change:opacity;transform:translateZ(0)}
-        .loading-screen.hidden{opacity:0;visibility:hidden;transition:opacity 0.8s ease,visibility 0.8s ease}
-        .apple-logo{margin-bottom:20px;will-change:transform}
-        .plum-icon{width:60px;height:60px;opacity:0.8;will-change:opacity}
-        @media (max-width:768px){.plum-icon{width:45px;height:45px}}
-        .loading-text{color:#fff;font-size:24px;margin-top:10px;font-display:swap}
-        .loading-subtitle{color:#ccc;font-size:16px;margin-top:5px;font-display:swap}
+        .loading-screen{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:10000}
+        .apple-logo{margin-bottom:20px}.plum-icon{width:100px;height:100px;opacity:0.8}
+        .loading-text{color:#fff;font-size:24px;margin-top:10px}
+        #desktop{width:100vw;height:100vh;background-size:cover;background-position:center;background-repeat:no-repeat;position:relative;background-image:url('images/wallpapers/greece.webp')}
+        .loading-subtitle{color:#ccc;font-size:16px;margin-top:5px}
         .loading-bar-container{width:200px;height:4px;background:rgba(255,255,255,0.2);border-radius:2px;margin-top:20px;overflow:hidden}
-        .loading-bar{height:100%;background:#007aff;width:0;transition:width 0.3s ease;border-radius:2px;will-change:width}
-        .loading-status{color:#999;font-size:14px;margin-top:10px;font-display:swap}
-        .mobile-home-screen{contain:layout style paint;will-change:transform}
-        .iphone-profile-card{contain:layout style paint;background:rgba(255,255,255,0.95);border-radius:20px;padding:30px 20px;margin:0 auto 40px;max-width:350px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,0.3);backdrop-filter:blur(20px);min-height:280px!important;height:auto;will-change:auto;box-sizing:border-box}
-        .iphone-profile-bio{color:#666;font-size:14px;line-height:1.4;text-align:center;margin:8px 0;padding:0 20px;font-display:swap;contain:layout style paint}
-        .iphone-profile-name{font-size:24px;font-weight:700;color:#1d1d1f;margin-bottom:8px}
-        .iphone-profile-title{font-size:16px;color:#666;font-weight:500;margin-bottom:15px}
-        .iphone-profile-image{width:100px!important;height:100px!important;border-radius:50%;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 8px 25px rgba(102,126,234,0.3);contain:layout style paint;flex-shrink:0}
-        .profile-picture{width:100px!important;height:100px!important;object-fit:cover;border-radius:50%;background-color:#f0f0f0;display:block;flex-shrink:0}
-        .loading-content{contain:layout style paint;min-height:200px;display:flex;flex-direction:column;justify-content:center;align-items:center}
-        .iphone-app{contain:layout style paint;width:60px;height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:12px;cursor:pointer;transition:all 0.2s ease;box-sizing:border-box}
-        #desktop{width:100vw;height:100vh;background-size:cover;background-position:center;background-repeat:no-repeat;position:relative;background-image:url('images/wallpapers/ColoradoSprings.webp')}
-        @media (max-width:768px){#desktop{background-image:url('images/wallpapers/CorfuGreece.webp')}}
-        body.mobile-interface{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%)!important;overflow:hidden!important;height:100vh!important;width:100vw!important;position:fixed!important;top:0!important;left:0!important;margin:0!important;padding:0!important}
-        body.mobile-interface.has-wallpaper{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;background-attachment:fixed!important}
-        @media (max-width:680px){.menu-bar{display:none!important}.desktop{display:none!important}.dock{display:none!important}body.mobile-interface .menu-bar,body.mobile-interface .desktop,body.mobile-interface .dock{display:none!important;visibility:hidden!important}body.mobile-interface .mobile-home-screen{display:block!important;visibility:visible!important}.mobile-home-screen{display:block!important;padding:60px 20px 20px;min-height:100vh;height:100vh;width:100vw;background:transparent;position:fixed;top:0;left:0;z-index:1;overflow-y:auto;-webkit-overflow-scrolling:touch}}
+        .loading-bar{height:100%;background:#007aff;width:0;transition:width 0.3s ease;border-radius:2px}
+        .loading-status{color:#999;font-size:14px;margin-top:10px}
+        
+        /* Beautiful Settings Styles */
+        .settings-container{padding:0;height:100%;display:flex;flex-direction:column;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;border-radius:12px;overflow:hidden}
+        .settings-header{text-align:center;padding:25px 20px;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.2);flex-shrink:0}
+        .settings-header i{font-size:42px;margin-bottom:12px;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,0.3)}
+        .settings-header h2{margin:0 0 8px 0;font-size:26px;font-weight:600;text-shadow:0 2px 10px rgba(0,0,0,0.5)}
+        .settings-header p{margin:0;opacity:0.9;font-size:15px;text-shadow:0 1px 5px rgba(0,0,0,0.3)}
+        .wallpaper-section{padding:20px;flex:1;overflow-y:auto;min-height:0}
+        .section-title{display:flex;align-items:center;gap:12px;margin-bottom:18px;font-size:18px;font-weight:600;color:#fff;text-shadow:0 1px 5px rgba(0,0,0,0.5)}
+        .section-title i{font-size:22px}
+        .wallpaper-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;padding:0}
+        .wallpaper-option{position:relative;cursor:pointer;border-radius:14px;overflow:hidden;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);box-shadow:0 6px 24px rgba(0,0,0,0.3)}
+        .wallpaper-option:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 16px 32px rgba(0,0,0,0.4);border-color:rgba(255,255,255,0.4)}
+        .wallpaper-option.selected{border-color:#00ff88;box-shadow:0 0 0 3px rgba(0,255,136,0.3),0 16px 32px rgba(0,0,0,0.4);transform:translateY(-3px)}
+        .wallpaper-option.selected::after{content:'✓';position:absolute;top:8px;right:8px;background:#00ff88;color:#000;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:14px;z-index:2}
+        .wallpaper-preview{width:100%;height:110px;object-fit:cover;transition:all 0.3s ease}
+        .wallpaper-option:hover .wallpaper-preview{transform:scale(1.08)}
+        .wallpaper-name{padding:10px 12px;background:rgba(0,0,0,0.7);color:#fff;font-size:13px;font-weight:500;text-align:center;backdrop-filter:blur(10px)}
+        .settings-footer{padding:18px 20px;text-align:center;background:rgba(255,255,255,0.05);border-top:1px solid rgba(255,255,255,0.1);flex-shrink:0}
+        .current-selection{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:linear-gradient(135deg,#007aff,#0056cc);border-radius:25px;font-size:14px;color:#fff;border:none;box-shadow:0 4px 16px rgba(0,122,255,0.3);transition:all 0.3s ease}
+        .current-selection:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,122,255,0.4)}
+        .current-selection i{color:#fff}
+        
+        @media (max-width:768px){
+            .wallpaper-grid{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px}
+            .settings-header{padding:18px 15px}
+            .settings-header h2{font-size:22px}
+            .settings-header i{font-size:36px}
+            .wallpaper-section{padding:16px 15px}
+            .settings-footer{padding:15px}
+            .current-selection{padding:10px 20px;font-size:13px}
+        }
     </style>
     
-    <!-- Preload Critical Resources - LCP Optimized -->
-    <link rel="preload" href="images/profilepicture/Kevin_Plumlee.webp" as="image" type="image/webp" fetchpriority="high">
-    <link rel="preload" href="images/icons/plum.svg" as="image" type="image/svg+xml" fetchpriority="high">
-    <!-- Only preload the appropriate default wallpaper, not both -->
-    <link rel="preload" href="images/wallpapers/CorfuGreece.webp" as="image" type="image/webp" media="(max-width: 768px)" fetchpriority="low">
-    <link rel="preload" href="images/wallpapers/ColoradoSprings.webp" as="image" type="image/webp" media="(min-width: 769px)" fetchpriority="low">
-    
-    <!-- Font Awesome -->
-
-    <!-- Performance Resource Hints -->
-    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    
-    <!-- Font Awesome (non-blocking with fallback) -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous"></noscript>
-    
-    <!-- CSS Bundle -->
-    <!-- CSS Bundle (non-blocking) -->
+    <!-- Preload Critical Resources -->
     <link rel="preload" href="dist/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="dist/css/all.min.css"></noscript>
+    <link rel="preload" href="dist/js/all.min.js" as="script">
+    <link rel="preload" href="images/icons/plum.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="images/profilepicture/Kevin_Plumlee.webp" as="image" type="image/webp">
+    <link rel="preload" href="images/wallpapers/greece.webp" as="image" type="image/webp">
     
-    <!-- Trivia App CSS -->
-    <link rel="preload" href="css/trivia.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/trivia.css"></noscript>
+    <!-- External CSS - Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <!-- Optimized CSS Bundle -->
+    <link rel="stylesheet" href="dist/css/all.min.css">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -138,7 +141,7 @@
         "jobTitle": "VP Performance Marketing",
         "description": "Healthcare marketing executive with 15+ years experience specializing in SEO, web development, and digital transformation for healthcare organizations.",
         "url": "https://kevinplumlee.com",
-                    "image": "https://kevinplumlee.com/images/profilepicture/Kevin_Plumlee.webp",
+        "image": "https://kevinplumlee.com/images/profilepicture/Kevin_Plumlee.webp",
         "sameAs": [
             "https://www.linkedin.com/in/kevinplumlee",
             "https://twitter.com/kevinplumlee"
@@ -253,7 +256,7 @@
         "name": "Kevin Plumlee Healthcare Marketing",
         "description": "Healthcare marketing consultancy led by Kevin Plumlee, VP Performance Marketing at Unlock Health",
         "url": "https://kevinplumlee.com",
-                    "logo": "https://kevinplumlee.com/images/profilepicture/Kevin_Plumlee.webp",
+        "logo": "https://kevinplumlee.com/images/profilepicture/Kevin_Plumlee.webp",
         "founder": {
             "@type": "Person",
             "name": "Kevin Plumlee",
@@ -363,7 +366,6 @@
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-BW48PX3R8D');</script>
-    <!-- End Google Tag Manager -->
     
     <!-- Service Worker Registration -->
     <script>
@@ -379,19 +381,17 @@
         });
     }
     </script>
-  </head>
-  <body>
-      <!-- Google Tag Manager (noscript) -->
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-BW48PX3R8D"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-      <!-- End Google Tag Manager (noscript) -->
-      
-      <!-- Loading Screen -->
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-BW48PX3R8D" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+    <!-- Loading Screen -->
     <div class="loading-screen" id="loading-screen">
         <div class="loading-content">
-                            <div class="apple-logo">
-                    <img src="images/icons/plum.svg" alt="Kevin Plumlee Healthcare Marketing Logo" class="plum-icon">
-                </div>
+            <div class="apple-logo">
+                <img src="images/icons/plum.svg" alt="Kevin Plumlee Healthcare Marketing Logo" class="plum-icon" width="100" height="100">
+            </div>
             <div class="loading-text">Kevin Plumlee</div>
             <div class="loading-subtitle">Healthcare Marketing Executive</div>
             <div class="loading-bar-container">
@@ -404,7 +404,7 @@
     <!-- Menu Bar -->
     <div class="menu-bar">
         <div class="menu-left">
-                                <img src="images/icons/plum.svg" alt="Kevin Plumlee Healthcare Marketing Executive" class="plum-icon menu-icon">
+            <img src="images/icons/plum.svg" alt="Kevin Plumlee Healthcare Marketing Executive" class="plum-icon menu-icon" width="24" height="24">
             <span class="menu-item active">Kevin Plumlee</span>
             <span class="menu-item">About</span>
             <span class="menu-item">Healthcare Marketing</span>
@@ -419,17 +419,14 @@
     </div>
 
     <!-- Desktop -->
-    <div class="desktop" id="desktop">
-        <!-- Desktop icons removed - using dock only -->
-    </div>
+    <div class="desktop" id="desktop"></div>
 
     <!-- Mobile Home Screen (iPhone-style) -->
-    <div class="mobile-home-screen" id="mobile-home-screen" style="display: none;">
-        <!-- iOS-style App Header -->
+    <div class="mobile-home-screen" id="mobile-home-screen" style="display:none">
         <div class="iphone-status-bar">
             <div class="app-header-left">
                 <div class="app-logo">
-                    <img src="images/icons/plum.svg" alt="Kevin Plumlee" class="plum-icon">
+                    <img src="images/icons/plum.svg" alt="Kevin Plumlee" class="plum-icon" width="32" height="32">
                 </div>
                 <div class="app-title">Kevin Plumlee</div>
             </div>
@@ -438,92 +435,141 @@
             </div>
         </div>
 
-        <!-- Profile Card -->
         <div class="iphone-profile-card">
             <div class="iphone-profile-image">
-                <img src="images/profilepicture/Kevin_Plumlee.webp" 
-                     alt="Kevin Plumlee - Healthcare Marketing Executive and VP Performance Marketing" 
-                     class="profile-picture" 
-                     loading="eager" 
-                     decoding="async" 
-                     fetchpriority="high"
-                     width="100" 
-                     height="100">
+                <img src="images/profilepicture/Kevin_Plumlee.webp" alt="Kevin Plumlee - Healthcare Marketing Executive and VP Performance Marketing" class="profile-picture" width="100" height="100" loading="eager" fetchpriority="high">
             </div>
             <div class="iphone-profile-name">Kevin Plumlee</div>
             <div class="iphone-profile-title">Healthcare Marketing Executive</div>
             <div class="iphone-profile-bio">VP Performance Marketing at Unlock Health with 15+ years of experience in healthcare marketing and digital transformation.</div>
         </div>
 
-        <!-- App Grid -->
         <div class="iphone-app-grid">
             <div class="iphone-app" data-app="about">
-                <div class="iphone-app-icon">
-                    <i class="fas fa-user-circle"></i>
-                </div>
+                <div class="iphone-app-icon"><i class="fas fa-user-circle"></i></div>
                 <div class="iphone-app-name">About</div>
             </div>
             <div class="iphone-app" data-app="projects">
-                <div class="iphone-app-icon">
-                    <i class="fas fa-briefcase"></i>
-                </div>
+                <div class="iphone-app-icon"><i class="fas fa-briefcase"></i></div>
                 <div class="iphone-app-name">Projects</div>
             </div>
             <div class="iphone-app" data-app="resume">
-                <div class="iphone-app-icon">
-                    <i class="fas fa-file-alt"></i>
-                </div>
+                <div class="iphone-app-icon"><i class="fas fa-file-alt"></i></div>
                 <div class="iphone-app-name">Resume</div>
             </div>
             <div class="iphone-app" data-app="contact">
-                <div class="iphone-app-icon">
-                    <i class="fas fa-envelope"></i>
-                </div>
+                <div class="iphone-app-icon"><i class="fas fa-envelope"></i></div>
                 <div class="iphone-app-name">Contact</div>
             </div>
-
             <div class="iphone-app" data-app="settings">
-                <div class="iphone-app-icon">
-                    <i class="fas fa-cog"></i>
-                </div>
+                <div class="iphone-app-icon"><i class="fas fa-cog"></i></div>
                 <div class="iphone-app-name">Settings</div>
             </div>
             <div class="iphone-app" data-app="linkedin">
-                <div class="iphone-app-icon">
-                    <i class="fab fa-linkedin"></i>
-                </div>
+                <div class="iphone-app-icon"><i class="fab fa-linkedin"></i></div>
                 <div class="iphone-app-name">LinkedIn</div>
             </div>
             <div class="iphone-app" data-app="unlock-health">
-                <div class="iphone-app-icon">
-                    <i class="fas fa-building"></i>
-                </div>
+                <div class="iphone-app-icon"><i class="fas fa-building"></i></div>
                 <div class="iphone-app-name">Unlock Health</div>
             </div>
             <div class="iphone-app" data-app="credentials">
-                <div class="iphone-app-icon">
-                    <i class="fas fa-certificate"></i>
-                </div>
+                <div class="iphone-app-icon"><i class="fas fa-certificate"></i></div>
                 <div class="iphone-app-name">Credentials</div>
-            </div>
-            <div class="iphone-app" data-app="trivia">
-                <div class="iphone-app-icon">
-                    <i class="fas fa-brain"></i>
-                </div>
-                <div class="iphone-app-name">Trivia</div>
-            </div>
-            <div class="iphone-app" data-app="calculator">
-                <div class="iphone-app-icon">
-                    <i class="fas fa-calculator"></i>
-                </div>
-                <div class="iphone-app-name">Calculator</div>
             </div>
         </div>
     </div>
 
+    <!-- SEO Content Section - Visible to search engines, hidden from users -->
+    <div id="seo-content" style="position:absolute;left:-9999px;top:0">
+        <main>
+            <article>
+                <header>
+                    <h1>Kevin Plumlee - Healthcare Marketing Executive | VP Performance Marketing</h1>
+                    <p>Healthcare marketing executive with 15+ years experience. VP Performance Marketing at Unlock Health. Co-founder of Dreamscape Marketing.</p>
+                </header>
+                
+                <section class="seo-content-section">
+                    <h2>Kevin Plumlee - Healthcare Marketing Professional</h2>
+                    <p>Experienced healthcare marketing specialist with expertise in digital marketing, patient acquisition, and practice growth strategies for healthcare organizations.</p>
+                    
+                    <h3>Healthcare Marketing Services</h3>
+                    <ul>
+                        <li>Digital Marketing Strategy for Healthcare Practices</li>
+                        <li>Patient Acquisition and Retention Strategies</li>
+                        <li>Medical Practice Marketing Solutions</li>
+                        <li>Healthcare Marketing Analytics and Reporting</li>
+                        <li>Brand Development for Healthcare Organizations</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>About Kevin Plumlee</h2>
+                    <p>Transform your healthcare organization with over 15 years of cutting-edge digital marketing, SEO mastery, and full-stack web development expertise. As VP of Performance Marketing at Unlock Health and co-founder of Dreamscape Marketing, I lead our team in architecting data-driven digital ecosystems that revolutionize patient acquisition, enhance online visibility, and deliver exceptional ROI.</p>
+                    
+                    <p>From scaling startups to 80+ person agencies to becoming the largest behavioral health marketing firm in the U.S., I now bring this expertise to Unlock Health, where I blend technical prowess with strategic vision to create digital solutions that connect people to life-changing care.</p>
+                </section>
+
+                <section>
+                    <h2>Healthcare Marketing Services</h2>
+                    <ul>
+                        <li>Healthcare SEO optimization and digital marketing strategy</li>
+                        <li>Behavioral health marketing and addiction treatment marketing</li>
+                        <li>Senior living marketing and dental practice marketing</li>
+                        <li>Hospital marketing and medical practice growth</li>
+                        <li>Patient acquisition and healthcare conversion optimization</li>
+                        <li>HIPAA compliant marketing solutions</li>
+                        <li>Healthcare web development and digital transformation</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Professional Experience</h2>
+                    <div>
+                        <h3>VP Performance Marketing - Unlock Health</h3>
+                        <p>Leading healthcare marketing initiatives, overseeing strategic vision and management of SEO, content creation, and web development for healthcare clients nationwide.</p>
+                    </div>
+                    
+                    <div>
+                        <h3>Co-founder - Dreamscape Marketing</h3>
+                        <p>Healthcare marketing agency specializing in behavioral health, senior living, dental care, and hospital systems.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Technical Expertise</h2>
+                    <h3>SEO & Digital Marketing</h3>
+                    <ul>
+                        <li>SEMrush, Ahrefs, Moz Pro, Google Analytics 4</li>
+                        <li>Google Search Console, Google Ads, Google Tag Manager</li>
+                        <li>Healthcare-specific keyword research and competitor analysis</li>
+                        <li>Local SEO for healthcare practices</li>
+                    </ul>
+
+                    <h3>Web Development</h3>
+                    <ul>
+                        <li>HTML5, CSS3, JavaScript ES6+, TypeScript</li>
+                        <li>React, Vue.js, Node.js, PHP, Python</li>
+                        <li>MySQL, PostgreSQL, MongoDB</li>
+                        <li>AWS, Google Cloud, Microsoft Azure</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Contact Information</h2>
+                    <p>Connect with Kevin Plumlee for healthcare marketing consultation:</p>
+                    <ul>
+                        <li>LinkedIn: <a href="https://www.linkedin.com/in/kevinplumlee">linkedin.com/in/kevinplumlee</a></li>
+                        <li>Company: <a href="https://unlockhealth.com">Unlock Health</a></li>
+                        <li>Location: Columbia, Maryland, United States</li>
+                    </ul>
+                </section>
+            </article>
+        </main>
+    </div>
+
     <!-- Windows Container -->
     <div class="windows-container" id="windows-container">
-        <!-- About Me Window -->
         <div class="window" id="about-window" data-app="about">
             <div class="window-header">
                 <div class="window-controls">
@@ -535,14 +581,11 @@
                     <i class="fas fa-chevron-left"></i> Back
                 </button>
                 <div class="window-title">About Kevin Plumlee</div>
-                <button class="iphone-action-button" style="visibility: hidden;">Action</button>
+                <button class="iphone-action-button" style="visibility:hidden">Action</button>
             </div>
-            <div class="window-content" id="about-content">
-                <!-- Content will be loaded from about.html -->
-            </div>
+            <div class="window-content" id="about-content"></div>
         </div>
 
-        <!-- Projects Window -->
         <div class="window" id="projects-window" data-app="projects">
             <div class="window-header">
                 <div class="window-controls">
@@ -554,14 +597,11 @@
                     <i class="fas fa-chevron-left"></i> Back
                 </button>
                 <div class="window-title">Healthcare Marketing Projects</div>
-                <button class="iphone-action-button" style="visibility: hidden;">Action</button>
+                <button class="iphone-action-button" style="visibility:hidden">Action</button>
             </div>
-            <div class="window-content" id="projects-content">
-                <!-- Content will be loaded from projects.html -->
-            </div>
+            <div class="window-content" id="projects-content"></div>
         </div>
 
-        <!-- Resume Window -->
         <div class="window" id="resume-window" data-app="resume">
             <div class="window-header">
                 <div class="window-controls">
@@ -573,14 +613,11 @@
                     <i class="fas fa-chevron-left"></i> Back
                 </button>
                 <div class="window-title">Professional Resume</div>
-                <button class="iphone-action-button" style="visibility: hidden;">Action</button>
+                <button class="iphone-action-button" style="visibility:hidden">Action</button>
             </div>
-            <div class="window-content" id="resume-content">
-                <!-- Content will be loaded from resume.html -->
-            </div>
+            <div class="window-content" id="resume-content"></div>
         </div>
 
-        <!-- Contact Window -->
         <div class="window" id="contact-window" data-app="contact">
             <div class="window-header">
                 <div class="window-controls">
@@ -592,54 +629,11 @@
                     <i class="fas fa-chevron-left"></i> Back
                 </button>
                 <div class="window-title">Let's Connect</div>
-                <button class="iphone-action-button" style="visibility: hidden;">Action</button>
+                <button class="iphone-action-button" style="visibility:hidden">Action</button>
             </div>
-            <div class="window-content" id="contact-content">
-                <!-- Content will be loaded from contact.html -->
-            </div>
+            <div class="window-content" id="contact-content"></div>
         </div>
 
-
-
-        <!-- Trivia Window -->
-        <div class="window" id="trivia-window" data-app="trivia">
-            <div class="window-header">
-                <div class="window-controls">
-                    <div class="control close" data-action="close"></div>
-                    <div class="control minimize" data-action="minimize"></div>
-                    <div class="control maximize" data-action="maximize"></div>
-                </div>
-                <button class="iphone-back-button" data-action="close">
-                    <i class="fas fa-chevron-left"></i> Back
-                </button>
-                <div class="window-title">Healthcare Marketing Trivia</div>
-                <button class="iphone-action-button" style="visibility: hidden;">Action</button>
-            </div>
-            <div class="window-content" id="trivia-content">
-                <!-- Content will be loaded from trivia.html -->
-            </div>
-        </div>
-
-        <!-- Calculator Window -->
-        <div class="window" id="calculator-window" data-app="calculator">
-            <div class="window-header">
-                <div class="window-controls">
-                    <div class="control close" data-action="close"></div>
-                    <div class="control minimize" data-action="minimize"></div>
-                    <div class="control maximize" data-action="maximize"></div>
-                </div>
-                <button class="iphone-back-button" data-action="close">
-                    <i class="fas fa-chevron-left"></i> Back
-                </button>
-                <div class="window-title">Healthcare Marketing Calculator</div>
-                <button class="iphone-action-button" style="visibility: hidden;">Action</button>
-            </div>
-            <div class="window-content" id="calculator-content">
-                <!-- Content will be loaded from calculator.html -->
-            </div>
-        </div>
-
-        <!-- Settings Window -->
         <div class="window" id="settings-window" data-app="settings">
             <div class="window-header">
                 <div class="window-controls">
@@ -651,14 +645,31 @@
                     <i class="fas fa-chevron-left"></i> Back
                 </button>
                 <div class="window-title">Settings</div>
-                <button class="iphone-action-button" style="visibility: hidden;">Action</button>
+                <button class="iphone-action-button" style="visibility:hidden">Action</button>
             </div>
             <div class="window-content" id="settings-content">
-                <div class="settings-section">
-                    <h3>Desktop Background</h3>
-                    <p>Choose a wallpaper from the available options:</p>
-                    <div class="wallpaper-grid" id="wallpaper-grid">
-                        <!-- Wallpapers will be loaded dynamically -->
+                <div class="settings-container">
+                    <div class="settings-header">
+                        <i class="fas fa-palette"></i>
+                        <h2>Desktop Personalization</h2>
+                        <p>Choose from our collection of beautiful wallpapers to customize your experience</p>
+                    </div>
+                    
+                    <div class="wallpaper-section">
+                        <div class="section-title">
+                            <i class="fas fa-images"></i>
+                            <span>Wallpaper Gallery</span>
+                        </div>
+                        <div class="wallpaper-grid" id="wallpaper-grid">
+                            <!-- Wallpapers will be loaded dynamically -->
+                        </div>
+                    </div>
+                    
+                    <div class="settings-footer">
+                        <div class="current-selection">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Click any image to set as background</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -689,29 +700,13 @@
         <div class="dock-item" data-app="credentials" title="Professional Credentials">
             <i class="fas fa-certificate"></i>
         </div>
-        <div class="dock-item" data-app="trivia" title="Healthcare Marketing Trivia">
-            <i class="fas fa-brain"></i>
-        </div>
-        <div class="dock-item" data-app="calculator" title="Healthcare Marketing Calculator">
-            <i class="fas fa-calculator"></i>
-        </div>
         <div class="dock-separator"></div>
         <div class="dock-item" data-app="settings" title="Settings">
             <i class="fas fa-cog"></i>
         </div>
     </div>
 
-    <!-- JavaScript Bundle -->
+    <!-- Optimized JavaScript Bundle -->
     <script src="dist/js/all.min.js" defer></script>
-    
-    <!-- Trivia App JavaScript -->
-    <script src="js/trivia.js" defer></script>
-    
-    <!-- Calculator App CSS and JavaScript -->
-    <link rel="stylesheet" href="css/calculator.css">
-    <script src="js/calculator.js" defer></script>
-    
-    <!-- Performance Monitoring (enabled for layout shift tracking) -->
-    <script src="performance-monitor.js" defer></script>
 </body>
 </html> 

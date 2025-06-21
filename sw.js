@@ -25,12 +25,7 @@ const STATIC_FILES = [
     '/content/about.html',
     '/content/resume.html',
     '/content/contact.html',
-    '/content/trivia.html',
-    '/js/trivia.js',
-    '/css/trivia.css',
-    '/content/calculator.html',
-    '/js/calculator.js',
-    '/css/calculator.css',
+
     '/favicon.svg',
     '/favicon.ico',
     '/apple-touch-icon.png',

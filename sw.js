@@ -1,8 +1,8 @@
-const CACHE_NAME = 'kevin-plumlee-v3.4';
-const STATIC_CACHE = 'static-v2.0';
-const DYNAMIC_CACHE = 'dynamic-v2.0';
+const CACHE_NAME = 'kevin-plumlee-v3.5';
+const STATIC_CACHE = 'static-v2.1';
+const DYNAMIC_CACHE = 'dynamic-v2.1';
 
-// Files to cache immediately
+// Files to cache immediately - only existing files
 const STATIC_FILES = [
     '/',
     '/index.html',
@@ -23,14 +23,19 @@ const STATIC_FILES = [
     '/images/wallpapers/ColoradoSprings.webp',
     '/images/wallpapers/OceanCityMD.webp',
     '/content/about.html',
+    '/content/projects.html',
     '/content/resume.html',
     '/content/contact.html',
-
     '/favicon.svg',
     '/favicon.ico',
+    '/favicon-16x16.png',
+    '/favicon-32x32.png',
     '/apple-touch-icon.png',
     '/android-chrome-192x192.png',
-    '/android-chrome-512x512.png'
+    '/android-chrome-512x512.png',
+    '/site.webmanifest',
+    '/robots.txt',
+    '/sitemap.xml'
 ];
 
 // Install event - cache static files

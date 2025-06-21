@@ -2,28 +2,21 @@ User-agent: *
 Allow: /
 
 # Allow crawling of optimized bundles and important assets
-Allow: /dist/
-Allow: /css/base.css
-Allow: /css/menu-bar.css
-Allow: /css/windows.css
-Allow: /css/desktop.css
-Allow: /css/responsive.css
-Allow: /css/about.css
-Allow: /css/projects.css
-Allow: /css/resume.css
-Allow: /css/contact.css
+Allow: /dist/css/all.min.css
+Allow: /dist/js/all.min.js
 
-Allow: /js/main.js
-Allow: /js/content-loader.js
-Allow: /js/window-manager.js
-Allow: /js/desktop-manager.js
-Allow: /js/menu-bar.js
+# Allow content pages
+Allow: /content/
+Allow: /images/
 
 # Disallow specific directories that shouldn't be crawled
 Disallow: /.git/
 Disallow: /.DS_Store
 Disallow: /WALLPAPER_GUIDE.md
-Disallow: /performance-monitor.js
+Disallow: /dist/css/all.min.css.working
+Disallow: /dist/css/all.min.css.backup
+Disallow: /dist/css/all.min.css.gz
+Disallow: /dist/js/all.min.js.gz
 
 # Sitemap location
 Sitemap: https://kevinplumlee.com/sitemap.xml
